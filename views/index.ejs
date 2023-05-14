@@ -16,72 +16,67 @@
         font-family: 'Inter', sans-serif;
     }
 </style>
-<body class="bg-[#202123]">
-<div class="w-full bg-[#303235] justify-between flex py-2 px-2 text-white text-xl font-bold">
-    <h1>UST AJANS</h1>
-    <h1>TAMAMİYLE GÜVENLİ</h1>
-</div>
-<div class="min-h-screen py-10 px-2 flex flex-col sm:flex-row text-white items-center justify-center space-y-10 sm:space-y-0 sm:space-x-10">
-    <div class="flex-col ring-2 ring-white bg-[#303235] p-3 rounded-xl space-y-3">
-        <h1><span class="text-red-500">AÇILAN SANDIK</span>: %<%= data.AcilanSandikOrani%></h1>
-        <h1><span class="text-red-500">GÜNCELLENME</span>: <%= data.Guncelleme%></h1>
-        <h1><span class="text-red-500">TOPLAM SANDIK</span>: <%= data.ToplamSandik%></h1>
-        <h1><span class="text-red-500">TOPLAM SECMEN</span>: <%= data.ToplamSecmen%></h1>
+<body class="items-center mt-20 space-x-10 justify-center flex flex-col space-y-10 min-h-screen bg-black">
 
-    </div>
-    <div class="flex-col bg-[#303235] ring-2 ring-[#F68407] bg-opacity-50 p-3 rounded-xl space-y-3">
-        <div class="flex flex-col space-y-3 items-center justify-center">
-            <% data.Sonuclar.forEach(sonuc => { %>
-                <% if (sonuc.Adi === "Recep Tayyip Erdoğan") { %>
-                    <img src="https://cdt-tr.hanzy.dev/cdt-passport/41.png">
-                    <div class="w-full flex bg-white h-0.5"></div>
-                    <p> <%= sonuc.Adi %></p>
-                    <div class="w-full flex bg-white h-0.5"></div>
-                    <p class="text-xl font-bold"> %<%= sonuc.OyOrani %></p>
-                <% } %>
-            <% }); %>
-        </div>
-    </div>
-    <div class="flex-col bg-[#303235] ring-2 ring-[#B02021] bg-opacity-50 p-3 rounded-xl space-y-3">
-        <div class="flex flex-col space-y-3 items-center justify-center">
-            <% data.Sonuclar.forEach(sonuc => { %>
-                <% if (sonuc.Adi === "Kemal Kılıçdaroğlu") { %>
-                    <img src="https://cdt-tr.hanzy.dev/cdt-passport/43.png">
-                    <div class="w-full flex bg-white h-0.5"></div>
-                    <p> <%= sonuc.Adi %></p>
-                    <div class="w-full flex bg-white h-0.5"></div>
-                    <p class="text-xl font-bold"> %<%= sonuc.OyOrani %></p>
-                <% } %>
-            <% }); %>
-        </div>
-    </div>
-    <div class="flex-col bg-[#303235] ring-2 ring-[#E2BF61] bg-opacity-50 p-3 rounded-xl space-y-3">
-        <div class="flex flex-col space-y-3 items-center justify-center">
-            <% data.Sonuclar.forEach(sonuc => { %>
-                <% if (sonuc.Adi === "Sinan Oğan") { %>
-                    <img src="https://cdt-tr.hanzy.dev/cdt-passport/44.png">
-                    <div class="w-full flex bg-white h-0.5"></div>
-                    <p> <%= sonuc.Adi %></p>
-                    <div class="w-full flex bg-white h-0.5"></div>
-                    <p class="text-xl font-bold"> %<%= sonuc.OyOrani %></p>
-                <% } %>
-            <% }); %>
-        </div>
-    </div>
-    <div class="flex-col bg-[#303235] ring-2 ring-[#728EED] bg-opacity-50 p-3 rounded-xl space-y-3">
-        <div class="flex flex-col space-y-3 items-center justify-center">
-            <% data.Sonuclar.forEach(sonuc => { %>
-                <% if (sonuc.Adi === "Muharrem İnce") { %>
-                    <img src="https://cdt-tr.hanzy.dev/cdt-passport/42.png">
-                    <div class="w-full flex bg-white h-0.5"></div>
-                    <p> <%= sonuc.Adi %></p>
-                    <div class="w-full flex bg-white h-0.5"></div>
-                    <p class="text-xl font-bold"> %<%= sonuc.OyOrani %></p>
-                <% } %>
-            <% }); %>
-        </div>
-    </div>
+    <h1 class="text-white text-center justify-center mt-10 text-xl font-bold">TOPLAM AÇILAN SANDIK %<%= data.AcilanSandikOrani%></h1>
+
+<div class=" flex sm:flex-row flex-col sm:space-y-0 space-y-10  sm:space-x-10 ">
+                <div class="flex">
+                    <div class="h-32 w-80 px-3 relative font-medium items-center flex space-x-2 bg-yellow-400">
+                        <% data.Sonuclar.forEach(sonuc => { %>
+                            <% if (sonuc.Adi === "Recep Tayyip Erdoğan") { %>
+                                <img src="https://cdt-tr.hanzy.dev/cdt-passport/41.png" class="h-32">
+                                <h1><%= sonuc.Adi %></h1>
+                                <h1 class="absolute text-[10px] bottom-0 right-0 ">SONUCLAR YANITLICI OLABİLİR </h1>
+                    </div>
+                    <div class="bg-yellow-600 font-bold justify-center flex items-center -32 w-20">
+                        %<%= sonuc.OyOrani %>
+                    </div>
+                    <% } %>
+                    <% }); %>
+
+                </div>
+                <div class="flex">
+                    <div class="h-32 w-80 px-3 font-medium items-center flex space-x-2 bg-red-800">
+                        <% data.Sonuclar.forEach(sonuc => { %>
+                            <% if (sonuc.Adi === "Kemal Kılıçdaroğlu") { %>
+                                <img src="https://cdt-tr.hanzy.dev/cdt-passport/43.png" class="h-32">
+                                <h1><%= sonuc.Adi %></h1>
+                    </div>
+                    <div class="bg-red-900 font-bold justify-center flex items-center -32 w-20">
+                        %<%= sonuc.OyOrani %>
+                    </div>
+                    <% } %>
+                    <% }); %>
+                </div>
+                <div class="flex">
+                    <div class="h-32 w-80 px-3 font-medium items-center flex space-x-2 bg-blue-800">
+                        <% data.Sonuclar.forEach(sonuc => { %>
+                            <% if (sonuc.Adi === "Sinan Oğan") { %>
+                                <img src="https://cdt-tr.hanzy.dev/cdt-passport/44.png" class="h-32">
+                                <h1><%= sonuc.Adi %></h1>
+                    </div>
+                    <div class="bg-blue-900 font-bold justify-center flex items-center -32 w-20">
+                        %<%= sonuc.OyOrani %>
+                    </div>
+                    <% } %>
+                    <% }); %>
+                </div>
+                <div class="flex">
+                    <div class="h-32 w-80 px-3 font-medium items-center flex space-x-2 bg-pink-800">
+                        <% data.Sonuclar.forEach(sonuc => { %>
+                            <% if (sonuc.Adi === "Muharrem İnce") { %>
+                                <img src="https://cdt-tr.hanzy.dev/cdt-passport/42.png" class="h-32">
+                                <h1><%= sonuc.Adi %></h1>
+                    </div>
+                    <div class="bg-pink-900 font-bold justify-center flex items-center -32 w-20">
+                        %<%= sonuc.OyOrani %>
+                    </div>
+                    <% } %>
+                    <% }); %>
+                </div>
 </div>
+
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="public/script.js"></script>
